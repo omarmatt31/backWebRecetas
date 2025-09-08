@@ -1,0 +1,14 @@
+{
+  "name": "3-backendwebrecetas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --env-file .env --watch index.js"
+  },
+  "keywords": [],
+  "author": "Omar Mattos",
+  "license": "ISC",
+  "description": "Backend de la web de recetas",
+  "type": "module"
+}
