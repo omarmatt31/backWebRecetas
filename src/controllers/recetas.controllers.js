@@ -1,3 +1,4 @@
+import Receta from "../models/receta.js"
 
 export const test = (req, res)=>{
     res.status(200)
@@ -9,7 +10,14 @@ export const leerRecetas =async(req, res)=>{
 }
 
 export const crearReceta = async(req, res)=>{
-
+    try{
+        const nuevaReceta = new Receta(req.body);
+        await nuevaReceta.save();
+        res.status(201).json({mensaje: 'La receta fue creada exitosamente'})
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: 'Error al crear la receta'})
+    }
 }
 
 export const leerRecetaPorId = async(req, res)=>{
