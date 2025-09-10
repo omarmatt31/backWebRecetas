@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { crearReceta, leerRecetaPorId, test } from "../controllers/recetas.controllers.js";
+import { crearReceta, leerRecetaPorId, leerRecetas, test } from "../controllers/recetas.controllers.js";
 
 const router = Router();
 
 router.route('/test').get(test)
-router.route('/').get(leerRecetaPorId).post(crearReceta)
+router.route('/').get(leerRecetas).post(crearReceta)
 
 export default router;

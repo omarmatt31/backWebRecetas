@@ -6,7 +6,13 @@ export const test = (req, res)=>{
 }
 
 export const leerRecetas =async(req, res)=>{
-
+    try{
+        const listaRecetas = await Receta.find()
+        res.status(200).json(listaRecetas)
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: 'Error al leer la receta'})
+    }
 }
 
 export const crearReceta = async(req, res)=>{
