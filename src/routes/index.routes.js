@@ -1,4 +1,4 @@
-import usuarioRoutes from "../models/usuario.js";
+import usuarioRoutes from "./usuarios.routes.js"
 import recetaRoutes from "./receta.routes.js";
 import { Router } from "express";
 
