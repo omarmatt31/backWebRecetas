@@ -17,8 +17,8 @@ const validacionUsuario = [
     .withMessage("La contraseña es un dato obligatorio")
     .isLength({ min: 8, max: 16 })
     .withMessage("La contraseña debe tener entre 8 y 16 caracteres")
-    .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/)
-    .withMessage("La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carécter especial"),
+    .matches( /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/)
+    .withMessage("La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial"),
   (req, res, next) => resultadoValidacion(req, res, next),
 ];
 

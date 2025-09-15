@@ -32,6 +32,45 @@ export const crearUsuario = async (req, res) => {
   }
 };
 
+export const leerUsuarioPorId = async(req, res)=>{
+    try{
+        const usuarioBuscado = await Usuario.findById(req.params.id)
+        if(!usuarioBuscado){
+            return res.status(404).json({mensaje: 'Usuario no encontrado'})
+        }
+        res.status(200).json(usuarioBuscado)
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: 'Error al obtener el usuario'})
+    }
+}
+
+export const borrarUsuarioPorId = async(req, res)=>{
+    try{
+        const usuarioEliminado = await Usuario.findByIdAndDelete(req.params.id)
+        if(!usuarioEliminado){
+            return res.status(404).json({mensaje: 'Usuario no encontrado'})
+        }
+        res.status(200).json({mensaje: 'Usuario eliminado exitosamente'})
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: 'Error al eliminar el usuario'})
+    }
+}
+
+export const editarUsuarioPorId = async(req, res)=>{
+    try{
+        const usuarioModificado = await Usuario.findByIdAndUpdate(req.params.id, req.body)
+        if(!usuarioModificado){
+            return res.status(404).json({mensaje: 'Usuario no encontrado'})
+        }
+        res.status(200).json({mensaje: 'Usuario actualizado exitosamente'})
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: 'Error al editar el usuario'})
+    }
+}
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;

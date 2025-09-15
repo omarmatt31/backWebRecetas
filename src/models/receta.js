@@ -36,13 +36,13 @@ const recetaSchema = new Schema({
     minLength: 2,
     maxLenght: 100,
   },
-    ingredientes: {
+  ingredientes: {
     type: String,
     required: true,
     minLength: 10,
     maxLenght: 400,
   },
-    preparacion: {
+  preparacion: {
     type: String,
     required: true,
     minLength: 5,
